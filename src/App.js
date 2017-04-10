@@ -1,14 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      newTodo: 'test',
+      todoList: [
+        {id:1, title:'第一个待办'}
+      ]
+    }
+  }
   render() {
+
+    let todos = this.state.todoList.map((item,index)=>{
+      return <li>{item.title}</li>
+    })
+
     return (
-        <div className="notification is-info">
-          <h2 className="title">Hello,world</h2>
+      <div className="App">
+        <h1>我的待办</h1>
+        <div className="inputWrapper">
+          {/*注意 value= 后面不要加引号，加了你试下，会错，因为属性值双引号、花括号只能二选一*/}
+          <input type="text" value={this.state.newTodo}/>
         </div>
-    );
+        <ol>
+          {todos}
+        </ol>
+      </div>
+    )
   }
 }
 
