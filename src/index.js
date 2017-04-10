@@ -6,6 +6,6 @@ import 'bulma/css/bulma.css'
 import Welcome from './Welcome'
 
 ReactDOM.render(
-  <Welcome/>,
+  <Welcome name="nsxz"/>,
   document.getElementById('container')
 )
