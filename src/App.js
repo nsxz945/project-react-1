@@ -4,13 +4,15 @@ import TodoInput from './TodoInput'
 import TodoItem from './TodoItem'
 import 'normalize.css'
 import './reset.css'
-
+import Sortable from 'sortablejs'
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
       newTodo: '',
       todoList: [
+      //  {id:1,title:1},
+      //  {id:1,title:2}
       ]
     }
   }
@@ -26,7 +28,7 @@ class App extends Component {
         </li>
       )
     })
-
+    
     return (
       <div className="App">
         <h1>我的待办</h1>
@@ -36,12 +38,18 @@ class App extends Component {
             onSubmit={this.addTodo.bind(this)} 
             />
         </div>
-        <ol>
+        <ol id="items">
           {todos}
         </ol>
       </div>
     )
   }
+  componentDidMount() {
+       var el = document.getElementById('items');
+       var sortable = Sortable.create(el,{
+            animation: 150
+       });
+    }
     toggle(e, todo){
     console.log(todo.status)
     todo.status = todo.status === 'completed' ? '' : 'completed'
@@ -75,9 +83,7 @@ class App extends Component {
 }
 
 export default App;
-
 let id = 0
-
 function idMaker(){
   id += 1
   return id
