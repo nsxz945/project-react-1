@@ -12,6 +12,9 @@
   box-shadow: 0 0 1em hsla(0,0%,0%,0.15);
 
 }
+ol{
+  transition: all 1s;
+}
 ol li{
   position: relative;
   color:black;

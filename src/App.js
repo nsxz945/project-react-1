@@ -54,6 +54,9 @@ class App extends Component {
     })
   }
   addTodo(event){
+    if (!event.target.value){
+      return alert('请检查输入内容')
+    }
     this.state.todoList.push({
       id: idMaker(),
       title: event.target.value,
