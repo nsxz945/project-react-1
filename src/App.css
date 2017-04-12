@@ -1,17 +1,64 @@
 .App {
-  color: #333;
+  color: #FFD700;
   border: 1px solid #aaa;
   border-radius: 4px;
   background: white;
+  background-image: url(../img/fpic8928.jpg);
+  background-size: 100%;
   margin: 2em;
   padding: 0 1em;
   min-height: 20em;
   min-width: 32em;
   box-shadow: 0 0 1em hsla(0,0%,0%,0.15);
+
 }
-.App > .todoList> li:nth-child(odd){
-  background: #eee;
+ol li{
+  position: relative;
+  color:black;
+  margin:2% 10%;
+  border-radius: 5px;
+  height:40px;
+  vertical-align: middle;
+  display:flex;
+  align-items: center;
+  transition: all .6s;
 }
-.App > .todoList> li:nth-child(even){
-  background: transparent;
+ol li button{
+  color:#FFF0F5;
+  position: absolute;
+  right:10px;
+  height:20px;
+  width:20px;
+  background: #DC143C;
+  border-radius:50%;
+}
+ol li:nth-child(9n+1){
+  background: #F0FFFF;
+}
+ol li:nth-child(9n+2){
+  background: #E0FFFF;
+}
+ol li:nth-child(9n+3){
+  background: #AFEEEE;
+}
+ol li:nth-child(9n+4){
+  background: #B0E0E6;
+}
+ol li:nth-child(9n+5){
+  background: #87CEFA;
+}
+ol li:nth-child(9n+6){
+  background: #B0E0E6;
+}
+ol li:nth-child(9n+7){
+  background: #AFEEEE;
+}
+ol li:nth-child(9n+8){
+  background: #E0FFFF;
+}
+ol li:nth-child(9n){
+  background: #F0FFFF;
+}
+ol li:hover{
+  background: #FF6347!important;
 }

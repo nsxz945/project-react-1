@@ -9,7 +9,7 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      newTodo: '请输入要提醒的事项',
+      newTodo: '',
       todoList: [
       ]
     }
@@ -33,7 +33,8 @@ class App extends Component {
         <div className="inputWrapper">
           <TodoInput content={this.state.newTodo} 
             onChange={this.changeTitle.bind(this)}
-            onSubmit={this.addTodo.bind(this)} />
+            onSubmit={this.addTodo.bind(this)} 
+            />
         </div>
         <ol>
           {todos}
