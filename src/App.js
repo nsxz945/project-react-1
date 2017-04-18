@@ -6,20 +6,13 @@ import 'normalize.css'
 import './reset.css'
 import Sortable from 'sortablejs'
 import * as localStore from './localStore'
-
+import AV from 'leancloud-storage'
 var APP_ID = 'fUWj9kUwc0tvfgPi2vPqYdlz-gzGzoHsz';
 var APP_KEY = 'bEvGkmAfWt2nvNG3XvEzQuYV';
 AV.init({
   appId: APP_ID,
   appKey: APP_KEY
 });
-var TestObject = AV.Object.extend('TestObject')
-var testObject = new TestObject()
-testObject.save({
-  words: 'Hello World!'
-}).then(function(object) {
-  alert('LeanCloud Rocks!')
-})
 
 class App extends Component {
   constructor(props) {
