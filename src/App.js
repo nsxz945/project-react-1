@@ -5,14 +5,13 @@ import TodoItem from './TodoItem'
 import 'normalize.css'
 import './reset.css'
 import Sortable from 'sortablejs'
-import * as localStore from './localStore'
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
       newTodo: '',
-      todoList: localStore.load('todoList') || []
+      todoList: []
     }
   }
   render() {
@@ -44,7 +43,6 @@ class App extends Component {
     )
   }
   componentDidUpdate(){
-    localStore.save('todoList', this.state.todoList)
   }
   componentDidMount() {
        var el = document.getElementById('items');
