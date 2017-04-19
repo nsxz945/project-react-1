@@ -5,7 +5,7 @@ import TodoItem from './TodoItem'
 import 'normalize.css'
 import './reset.css'
 import Sortable from 'sortablejs'
-
+import UserDialog from './UserDialog'
 class App extends Component {
   constructor(props) {
     super(props)
@@ -39,6 +39,7 @@ class App extends Component {
         <ol id="items">
           {todos}
         </ol>
+         <UserDialog />
       </div>
     )
   }

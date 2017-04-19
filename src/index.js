@@ -7,7 +7,3 @@ ReactDOM.render(
   <App />,
   document.getElementById('root')
 )
-ReactDOM.render(
-  <UserDialog />,
-  document.getElementById('root')
-)
