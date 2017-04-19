@@ -9,7 +9,7 @@ export default class UserDialog extends Component{
       formData: {
         username: '',
         password: '',
-        }
+      }
     }
   }
   switch(e){
@@ -29,8 +29,8 @@ export default class UserDialog extends Component{
     signUp(username, password, success, error)
   }
   signIn(e){}
-  changeFormDate(key,e){
-    let stateCopy = JSON.parse(JSON.stringify(this.state))
+  changeFormData(key, e){
+    let stateCopy = JSON.parse(JSON.stringify(this.state))  // 用 JSON 深拷贝
     stateCopy.formData[key] = e.target.value
     this.setState(stateCopy)
   }
@@ -41,11 +41,11 @@ export default class UserDialog extends Component{
           <label>用户名</label> 
           <input type="text" value={this.state.formData.username}
             onChange={this.changeFormData.bind(this, 'username')}/>
-          
+          {/* bind 不仅可以绑定 this，还可以绑定第一个参数 */}
         </div>
         <div className="row">
           <label>密码</label>
-          <input type="password"value={this.state.formData.password} 
+          <input type="password" value={this.state.formData.password} 
             onChange={this.changeFormData.bind(this, 'password')}/>
         </div>
         <div className="row actions">
@@ -74,8 +74,14 @@ export default class UserDialog extends Component{
       <div className="UserDialog-Wrapper">
         <div className="UserDialog">
           <nav onChange={this.switch.bind(this)}>
-            <label><input type="radio" value="signUp" checked={this.state.selected === 'signUp'}/> 注册</label>
-            <label><input type="radio" value="signIn" checked={this.state.selected === 'signIn'}/> 登录</label>
+            <label><input type="radio" value="signUp" 
+              checked={this.state.selected === 'signUp'}
+              onChange={this.switch.bind(this)}
+            /> 注册</label>
+            <label><input type="radio" value="signIn" 
+              checked={this.state.selected === 'signIn'}
+              onChange={this.switch.bind(this)}
+            /> 登录</label>
           </nav>
           <div className="panes">
             {this.state.selected === 'signUp' ? signUpForm : null}
