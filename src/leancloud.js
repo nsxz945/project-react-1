@@ -1,8 +1,36 @@
 import AV from 'leancloud-storage'
-var APP_ID = 'fUWj9kUwc0tvfgPi2vPqYdlz-gzGzoHsz';
-var APP_KEY = 'bEvGkmAfWt2nvNG3XvEzQuYV';
+
+var APP_ID = 'rUcmyykR2Tsi5VOPjfnkM7Yj-gzGzoHsz'
+var APP_KEY = 'Oy9HGah8eknBB6yTb9LOKjrt'
 AV.init({
   appId: APP_ID,
   appKey: APP_KEY
-});
+})
+
 export default AV
+
+export function signUp(username, password, successFn, errorFn){
+   // 新建 AVUser 对象实例
+  var user = new AV.User()
+  // 设置用户名
+  user.setUsername(username)
+  // 设置密码
+  user.setPassword(password)
+  // 设置邮箱
+  user.signUp().then(function (loginedUser) {
+    let user = getUserFromAVUser(loginedUser)
+    successFn.call(null, user)
+  }, function (error) {
+    errorFn.call(null, error)
+  })
+
+  return undefined
+
+}
+
+function getUserFromAVUser(AVUser){
+  return {
+    id: AVUser.id,
+    ...AVUser.attributes
+  }
+}
