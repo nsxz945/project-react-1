@@ -7,18 +7,35 @@ background: rgba(0, 0, 0, 0.5)
 }
 
 .UserDialog{
+	color:#272D2D;
+	display: flex; 
+	flex-direction: column;
+	justify-content: space-around; 
+	align-items: center; 
   border: 1px solid;
   border-radius: 4px;
   min-width: 20em;
   background: white;
   border: 1px solid #aaa;
   box-shadow: 0 0 1em hsla(0,0%,0%,0.35);
+  padding:1em 1em;
 }
+
+/*.UserDialog form>{
+	align-self: 
+}*/*/
 .UserDialog > nav:first-child{ padding: 1em; margin-left: -2em;}
 .UserDialog > nav:first-child label{ margin-left: 2em; cursor: pointer;}
 
-.UserDialog > .panes { padding: 0 1em 1em; }
+/*.UserDialog > .panes { padding: 0 1em 1em; }*/
 
 .UserDialog form>.row{ display: flex; padding: .3em 0; }
 .UserDialog form>.row>label:first-child{ width: 4em; }
 .UserDialog form>.row.actions{ padding-left: 4em; }
+.UserDialog form>.row.actions>button{
+	background: #1296DB;
+	color:white;
+	border:none;
+	border-radius: 3px;
+	padding:0.2em;
+}
