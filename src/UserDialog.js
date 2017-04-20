@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './UserDialog.css'
 import {signUp, signIn} from './leanCloud'
+import errorInfo from './error'
 export default class UserDialog extends Component{
   constructor(props){
     super(props)
@@ -24,7 +25,7 @@ export default class UserDialog extends Component{
       this.props.onSignUp.call(null, user)
     }
     let error = (error)=>{
-      console.log(error)
+      errorInfo(error)
     }
     signUp(username, password, success, error)
   }
@@ -35,7 +36,7 @@ export default class UserDialog extends Component{
       this.props.onSignIn.call(null, user)
     }
     let error = (error)=>{
-      alert(error)
+      errorInfo(error)
     }
     signIn(username, password, success, error)  
   }
