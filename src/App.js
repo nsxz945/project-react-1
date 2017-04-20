@@ -52,14 +52,15 @@ class App extends Component {
       </div>
     )
   }
+
   signOut(){
     signOut()
-    let stateCopy = JSON.parse(JSON.stringify(this.state))
+    let stateCopy = jsonObj(this.state)
     stateCopy.user = {}
     this.setState(stateCopy)
   }
   onSignInOrSignUp(user){
-    let stateCopy = JSON.parse(JSON.stringify(this.state)) 
+    let stateCopy = jsonObj(this.state)
     stateCopy.user = user
     this.setState(stateCopy)
   }  
@@ -112,4 +113,7 @@ let id = 0
 function idMaker(){
   id += 1
   return id
+}
+function jsonObj(obj){
+    return JSON.parse(JSON.stringify(obj))
 }
